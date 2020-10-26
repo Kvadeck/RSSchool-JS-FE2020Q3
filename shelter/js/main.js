@@ -249,7 +249,7 @@ $(document).ready(function () {
                             </div>
                         </div>
                         <button class="popup__button">
-                            <img class="popup__button-image" src="/assets/cross.svg">
+                            <img class="popup__button-image" src="../assets/cross.svg">
                         </button>
                     </div>
             </div>`
