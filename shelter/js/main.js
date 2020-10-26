@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     const getPets = async () => {
-        const url = "../pets.json";
+        const url = "./pets.json";
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`Could not fetch ${url}, received ${response.status}`);
