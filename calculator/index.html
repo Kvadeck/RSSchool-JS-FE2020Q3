@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>XCalculator</title>
+	<meta name="description" content="Description of the site">
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- connection FAVICONS -->
+	<link rel="icon" href="img/favicon/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png">
+
+	<!-- connection CSS -->
+	<link rel="stylesheet" href="css/main.min.css">
+</head>
+
+<body>
+
+	<main>
+		<div id="calculator" class="calculator-grid">
+
+			<div class="output">
+				<div data-display="prev" class="prev-operand"></div>
+				<div data-display="curr" class="curr-operand">0</div>
+			</div>
+
+			<button data-button="clear" class="clear">C</button>
+
+			<button data-button="func" data-function="sqrt" class="operations">√</button>
+
+			<button data-button="operator" class="operations pow">^</button>
+
+			<button data-button="backspace" class="operations delete">
+
+				<div class='square'>
+					<div class="right-cross">
+						<div class="left-cross"></div>
+					</div>
+				</div>
+
+			</button>
+
+			<button data-button="operator" class="operations span-two">-</button>
+
+			<button data-button="func" data-function="negative" class="operations negative">⁺⁄₋</button>
+
+			<button data-button="operator" class="operations">÷</button>
+
+			<button data-button="num" class="digit">7</button>
+			<button data-button="num" class="digit">8</button>
+			<button data-button="num" class="digit">9</button>
+
+			<button data-button="operator" class="operations span-two-row">+</button>
+
+			<button data-button="num" class="digit">4</button>
+			<button data-button="num" class="digit">5</button>
+			<button data-button="num" class="digit">6</button>
+
+			<button data-button="num" class="digit">1</button>
+			<button data-button="num" class="digit">2</button>
+			<button data-button="num" class="digit">3</button>
+
+			<button data-button="operator" class="operations">*</button>
+
+			<button data-button="num" class="digit span-two">0</button>
+			<button data-button="num" class="dot">.</button>
+			<button data-button="equal" class="equal">=</button>
+		</div>
+	</main>
+
+	<!-- connection JAVASCRIPT -->
+	<script src="js/main.min.js"></script>
+</body>
+
+</html>
