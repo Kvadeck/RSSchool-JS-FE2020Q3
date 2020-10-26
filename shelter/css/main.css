@@ -732,6 +732,9 @@ body {
   display: flex;
   align-items: center;
 }
+.popup .photo-popup__wrapper img {
+  width: 50rem;
+}
 .popup .text-popup {
   margin-left: 2.9rem;
   margin-right: 2rem;
@@ -762,7 +765,6 @@ body {
   font-size: 1.5rem;
   line-height: 110%;
   letter-spacing: 0.09rem;
-  font-size: 1.3rem;
 }
 .popup .text-popup__list {
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -896,6 +898,7 @@ body {
   }
   .popup .text-popup__description {
     padding-bottom: 2rem;
+    font-size: 1.3rem;
   }
 }
 @media screen and (max-width: 767px) {
@@ -1219,6 +1222,7 @@ body {
   }
   .popup .text-popup__description {
     padding-bottom: 2rem;
+    font-size: 1.3rem;
   }
 }
 @media screen and (max-width: 320px) {
