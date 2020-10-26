@@ -8,3 +8,5 @@ Private repository for @kvadeck
 
 [Momentum](https://rolling-scopes-school.github.io/kvadeck-JS2020Q3/momentum/)
 
+[Shelter](https://rolling-scopes-school.github.io/kvadeck-JS2020Q3/shelter/)
+
