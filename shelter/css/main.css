@@ -996,7 +996,7 @@ body {
     max-width: initial;
   }
   .hero__wrapper .content-section__subtitle {
-    text-align: center;
+    text-align: justify;
   }
 
   .about__wrapper {
@@ -1013,6 +1013,9 @@ body {
     font-size: 2.5rem;
     line-height: 130%;
     letter-spacing: 0.21rem;
+  }
+  .about__description {
+    text-align: justify;
   }
 
   .pets {
