@@ -1,0 +1,196 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  color: white;
+  padding: 1rem;
+  transition: background-image 1s ease-in-out;
+  background: center center/cover no-repeat;
+}
+#date {
+  font-size: 2rem;
+  z-index: 1;
+}
+#time {
+  font-size: 8rem;
+  z-index: 1;
+}
+#name {
+  margin-left: 0.5rem;
+  min-width: 1rem;
+  z-index: 1;
+}
+#greeting {
+  z-index: 1;
+}
+#focus {
+  min-width: 1rem;
+}
+
+.city-input:focus {
+  outline: none;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+h2 {
+  margin-bottom: 0.5rem;
+  opacity: 0.7;
+}
+
+.quoteBtn {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  background-image: url("https://www.pngarts.com/files/7/Update-Button-PNG-Image.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: grayscale(0.8);
+  margin: 10px;
+  cursor: pointer;
+}
+.quoteBtn:hover {
+  filter: grayscale(0.2);
+}
+.quoteBtn:active,
+.quoteBtn:focus {
+  outline: 0;
+}
+.quoteBtn:active {
+  transform: scale(1.02);
+}
+
+.quote {
+  position: fixed;
+  bottom: 0.2rem;
+  margin: 1rem;
+  margin-bottom: 0;
+}
+figcaption {
+  margin-top: 0.3rem;
+}
+
+.bgBtn {
+  position: fixed;
+  top: 1.6rem;
+  left: 1rem;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  background-image: url("https://www.pngarts.com/files/7/Update-Button-PNG-Image.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: grayscale(0.8);
+  margin: 10px;
+  cursor: pointer;
+}
+.bgBtn:hover {
+  filter: grayscale(0.2);
+}
+.bgBtn:active,
+.bgBtn:focus {
+  outline: 0;
+}
+.bgBtn:active {
+  transform: scale(1.02);
+}
+
+.weather-wrapper {
+  padding: 0.5rem;
+  width: 15rem;
+  height: fit-content;
+  border-radius: 3%;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  min-height: 40px;
+}
+.weather {
+  width: 15rem;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+}
+.weather-icon {
+  width: 100px;
+  height: 100px;
+}
+.temperature {
+  font-size: 1.5rem;
+}
+.city-input {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 2rem;
+  padding-top: 6px;
+}
+
+.weather-desc {
+  font-size: 1.5rem;
+  margin-top: -1rem;
+}
+.overlay {
+  position: absolute;
+  background-color: rgba(41, 41, 41, 0.7);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 30px 0;
+}
+
+@media (max-width: 700px) {
+  #time {
+    font-size: 6rem;
+  }
+}
+
+@media (max-width: 400px) {
+  #time {
+    font-size: 4rem;
+  }
+  #time {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 330px) {
+  body {
+    font-size: 0.6rem;
+  }
+  .weather-desc {
+    font-size: 1rem;
+  }
+  .weather-wrapper {
+    padding: 0.5rem;
+    top: 2rem;
+    right: 1rem;
+  }
+  .bgBtn {
+    top: 1.6rem;
+    left: 0;
+  }
+  .city-input {
+    padding: 5px;
+    font-size: 0.6rem;
+  }
+}
