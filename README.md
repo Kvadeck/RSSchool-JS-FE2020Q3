@@ -10,3 +10,5 @@ Private repository for @kvadeck
 
 [Shelter](https://rolling-scopes-school.github.io/kvadeck-JS2020Q3/shelter/)
 
+[Virtual Keyboard](https://rolling-scopes-school.github.io/kvadeck-JS2020Q3/virtual-keyboard/)
+
