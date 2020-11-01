@@ -407,6 +407,8 @@ body {
   justify-content: center;
   display: flex;
   align-items: center;
+  width: 107.8rem;
+  margin: 0 auto;
   padding: 6rem 0;
 }
 .pets__slider .slider-button {
@@ -432,7 +434,7 @@ body {
 .pets__slider #pets-slides {
   display: flex;
   justify-content: center;
-  min-width: 98.8rem;
+  min-width: 107.8rem;
 }
 .pets__slider .pets-card {
   display: flex;
@@ -831,14 +833,14 @@ body {
   }
 
   .pets__slider {
-    width: 59rem;
+    width: 62rem;
     margin: 0 auto;
   }
   .pets__slider #pets-slides {
-    min-width: 59rem;
+    min-width: 62rem;
   }
   .pets__slider .pets-card {
-    margin: 0 4rem;
+    margin: 0 2rem;
   }
 
   .help__wrapper {
@@ -1171,6 +1173,9 @@ body {
   }
   .donation__card-id:before {
     top: 0.7rem;
+  }
+  .donation__additional-info {
+    text-align: justify;
   }
 
   .footer .contacts__two-block-wrapper {
