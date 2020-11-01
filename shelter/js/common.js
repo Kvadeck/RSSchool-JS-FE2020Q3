@@ -14,7 +14,7 @@ const definePath = function () {
 
 const getImgPath = function () {
     let pathImg = './assets/pets/';
-    if (definePath()) { return pathStr = '../../assets/pets/' }
+    if (definePath()) { return pathStr = '../assets/pets/' }
     return pathImg;
 }
 
@@ -82,7 +82,7 @@ const popUpDomInsert = (data, id, slice) => {
                     </div>
                 </div>
                 <button class="popup__button">
-                    <img class="popup__button-image" src="${(definePath) ? "../assets/cross.svg" : "./assets/cross.svg"}">
+                    <img class="popup__button-image" src="${(definePath()) ? "../assets/cross.svg" : "./assets/cross.svg"}">
                         </button>
                     </div>
             </div>`
