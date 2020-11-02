@@ -12,3 +12,5 @@ Private repository for @kvadeck
 
 [Virtual Keyboard](https://rolling-scopes-school.github.io/kvadeck-JS2020Q3/virtual-keyboard/)
 
+[Gem Puzzle](https://rolling-scopes-school.github.io/kvadeck-JS2020Q3/virtual-keyboard/)
+
