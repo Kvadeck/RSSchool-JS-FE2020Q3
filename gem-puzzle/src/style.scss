@@ -1,0 +1,396 @@
+@import "./scss/normalize";
+@import "./scss/mixins";
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/buttons";
+
+$border-shadow: rgb(200, 200, 200);
+
+* {
+  margin: 0;
+  padding: 0;
+
+  list-style-type: none;
+
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background: #282c35;
+  position: absolute;
+  background-image: url(./assets/background.png);
+}
+
+:root {
+  font-size: 10px;
+}
+
+body {
+  background: #282c35;
+
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.topMenu-wrapper {
+  margin-top: 10rem;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  width: 50rem;
+  justify-content: space-between;
+  z-index: 105;
+
+  .dropdown {
+    button {
+      cursor: pointer;
+    }
+
+    .btn {
+      border-radius: 10px 0.1rem 0 0;
+    }
+
+    .btn {
+
+      &:active,
+      &:focus,
+      &:hover {
+        outline: none;
+        box-shadow: initial;
+        background-color: #2196F3;
+        border-color: #2196F3;
+      }
+    }
+
+    .dropdown-header {
+      font-size: 1.2rem;
+    }
+
+
+    .dropdown-item {
+      font-size: 2rem;
+    }
+  }
+
+  .infobar {
+
+    font-size: 2rem;
+    color: white;
+    background: #2196F3;
+    border-radius: 0.1rem 10px 0 0;
+    padding: 0 2rem;
+    padding-top: 1rem;
+    padding-bottom: 0;
+
+    &__timer {
+      display: inline-block;
+      width: 8.5rem;
+      height: 2rem;
+    }
+
+    #timer,
+    #steps {
+      color: #383838;
+      padding-left: 2px;
+    }
+
+    &__steps {}
+  }
+
+}
+
+.pause-overlay.open,
+.save-overlay.open,
+.load-overlay.open,
+.winner-overlay.open,
+.score-overlay.open,
+.help-overlay.open {
+  @include endScaleAnimate;
+}
+
+.sound_off {
+  color: red;
+}
+
+.sound_on {
+  color: initial;
+}
+
+.pause-overlay,
+.save-overlay,
+.load-overlay,
+.winner-overlay,
+.score-overlay,
+.help-overlay {
+  visibility: hidden;
+  position: absolute;
+  width: 50rem;
+  height: 50rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: block;
+  top: 14rem;
+  z-index: 999;
+  display: flex;
+  border-radius: 0 0 10px 10px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  @include startScaleAnimate;
+
+  &__wrap {
+    display: flex;
+  }
+
+  &__text {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 9rem;
+  }
+}
+
+.help-overlay {
+  flex-direction: column;
+
+  p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    color: white;
+    padding: 0 3rem;
+    text-align: center;
+  }
+}
+
+
+.winner-overlay {
+
+  .score__wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    align-items: start;
+
+    span {
+      font-size: 2.5rem;
+    }
+  }
+
+
+  .score-overlay__table th {
+    background: black;
+    text-align: left;
+    color: white;
+    padding: 0 1.3rem;
+    text-align: center;
+  }
+
+  .score-overlay__table td {
+    color: white;
+    padding: 1rem;
+  }
+
+  .winner-overlay__text {
+    background: #E91E63;
+    padding: 0 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__wrap {
+    flex-direction: column;
+    text-align: center;
+    line-height: 1.4;
+    flex-direction: column;
+
+    .winner__row {
+      background: #0000007a;
+    }
+
+    span {
+      font-family: 'Lobster', sans-serif;
+      color: white;
+      font-size: 5rem;
+    }
+
+  }
+
+}
+
+.score-overlay {
+
+  flex-direction: column;
+
+  &__wrap {
+    flex-direction: column;
+  }
+
+  &__table {
+    font-family: 'Roboto', sans-serif;
+    padding: 0 3rem;
+    font-size: 2rem;
+    width: 100%;
+
+    tr:nth-child(odd) {
+      background: #607D8B;
+    }
+
+    td {
+      color: white;
+      padding: .5rem;
+    }
+
+    th {
+      background: black;
+      text-align: left;
+      color: white;
+      padding: 0 .3rem;
+    }
+  }
+
+  &__title {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 4rem;
+    background: #E91E63;
+    padding: 0 2rem;
+    margin-bottom: 2rem;
+  }
+
+}
+
+.menu-button {
+  font-size: 2rem;
+  width: 13rem;
+}
+
+.main-game.show {
+  @include endScaleAnimate;
+}
+
+.main-game input.show {
+  opacity: 1;
+}
+
+.main-game__wrapper {
+  width: 50rem;
+  height: 50rem;
+  background: #2196F3;
+  background-position: center;
+  z-index: 100;
+  position: relative;
+  // border-radius: 10px;
+  box-shadow: 0 0 20px black;
+  border-radius: 0 0 10px 10px;
+}
+
+.main-game {
+  width: 50rem;
+  height: 50rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  grid-gap: 8px;
+  position: relative;
+  padding: 1.5rem;
+
+  border-radius: 0 0 5px 5px;
+
+
+
+  @include startScaleAnimate;
+
+  & input {
+    color: #383838;
+    font-family: 'Lobster', cursive;
+    font-size: 6rem;
+    font-weight: bold;
+    box-shadow: inset 0 0 0 1px $border-shadow;
+    border: 0;
+
+    outline: none;
+    padding: 0;
+    opacity: 0;
+    transition: all .10s linear;
+    text-align: center;
+    z-index: 1;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #FFD400;
+    background-position: center;
+
+    &.empty {
+      border: none;
+      background: none;
+      box-shadow: none;
+      cursor: initial;
+    }
+
+  }
+}
+
+.main-game.three {
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+
+  & input {
+    font-size: 8rem;
+  }
+}
+
+.main-game.five {
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 1fr;
+}
+
+.main-game.six {
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 1fr;
+
+  & input {
+    font-size: 4rem;
+  }
+
+}
+
+.main-game.seven {
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 1fr;
+
+  & input {
+    font-size: 3rem;
+  }
+
+}
+
+.main-game.eight {
+  grid-template-columns: repeat(8, 1fr);
+  grid-auto-rows: 1fr;
+
+  & input {
+    font-size: 2.7rem;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@import "./scss/mobile";

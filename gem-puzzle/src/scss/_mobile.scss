@@ -1,0 +1,150 @@
+@media screen and (max-width: 767px) {
+
+
+    .topMenu-wrapper {
+
+        .menu-button {
+            font-size: 1.3rem;
+            width: 10rem;
+        }
+
+        .dropdown {
+            button {
+                cursor: pointer;
+            }
+
+            .dropdown-item {
+                font-size: 1.5rem;
+            }
+
+            .dropdown-header {
+                font-size: 1rem;
+              }
+        }
+
+        .infobar {
+            display: flex;
+            align-items: center;
+            padding-top: .4rem;
+            font-size: 1.3rem;
+
+            &__timer {
+                width: 6.5rem;
+                height: initial;
+            }
+
+            &__steps {}
+        }
+
+    }
+
+
+    .main-game {
+        & input {
+            font-size: 4rem;
+        }
+    }
+
+
+    .main-game.three {
+        & input {
+            font-size: 7rem;
+        }
+    }
+
+    .main-game.five {
+        & input {
+            font-size: 4rem;
+        }
+    }
+
+    .main-game.six {
+
+
+        & input {
+            font-size: 3rem;
+        }
+
+    }
+
+    .main-game.seven {
+        & input {
+            font-size: 2.5rem;
+        }
+
+    }
+
+    .main-game.eight {
+        & input {
+            font-size: 2.5rem;
+        }
+    }
+
+    .pause-overlay,
+    .save-overlay,
+    .load-overlay,
+    .winner-overlay,
+    .score-overlay,
+    .help-overlay {
+
+        width: 31rem;
+        height: 31rem;
+
+        top: 13rem;
+
+        &__wrap {
+            display: flex;
+        }
+
+        &__text {
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            font-size: 5rem;
+        }
+    }
+
+    .winner-overlay {
+        &__wrap {
+            span {
+                font-size: 3rem;
+            }
+        }
+    }
+
+
+    .help-overlay {
+        p {
+            font-size: 1.2rem;
+        }
+    }
+
+    .score-overlay {
+        &__title {
+            font-size: 2rem;
+        }
+
+        &__table {
+            font-size: .9rem;
+            width: 100%;
+        }
+    }
+
+
+    .main-game__wrapper {
+        width: 31rem;
+        height: 31rem;
+    }
+
+    .main-game {
+        width: 31rem;
+        height: 31rem;
+    }
+
+    .topMenu-wrapper {
+        width: 31rem;
+    }
+
+
+
+
+}
