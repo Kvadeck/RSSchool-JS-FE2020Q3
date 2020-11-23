@@ -14,3 +14,4 @@ Private repository for @kvadeck
 
 [Gem Puzzle](https://rolling-scopes-school.github.io/kvadeck-JS2020Q3/gem-puzzle/)
 
+[English for kids](https://rolling-scopes-school.github.io/kvadeck-JS2020Q3/english-for-kids/)
