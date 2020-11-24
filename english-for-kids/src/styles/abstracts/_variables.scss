@@ -3,4 +3,19 @@ $bgGrad: linear-gradient(285.81deg, #00ffc2 6.69%, #bd00ff 100.21%),
 $deskGrad: linear-gradient(180deg, rgba(0, 26, 255, 0) 0%, #2e1c60 100%);
 $keyborder: rgba(152, 113, 113, 0.26);
 $keyborder-dark: rgba(152, 113, 113, 0.5);
-$color: #625c5c;
+
+// Changed order of bootstrap theme-colors
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "dark":       $dark,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $light,
+  ),
+  $theme-colors
+);

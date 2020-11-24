@@ -11,7 +11,6 @@
 2. Страница категории 
 3. Страница статистики 
 
-![screenshot](english-for.kids.data/img/screenshot.png)
 ### Demo
 https://english-for-kids.netlify.com/ (версия без Hacker scope)
 

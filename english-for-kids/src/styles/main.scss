@@ -1,10 +1,32 @@
 @import '~normalize-scss';
-@import './base/fonts';
-@import './abstracts/mixins';
+
+@import "~bootstrap/scss/functions";
+
+@import "~bootstrap/scss/variables";
+
 @import './abstracts/variables';
 
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/media";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/print";
+
+
+@import './base/fonts';
+@import './abstracts/mixins';
+
+
 :root {
-  font-size: 10px;
+  font-size: 15px;
   font-family: 'Roboto-regular', sans-serif;
 }
 
@@ -14,14 +36,32 @@
   box-sizing: border-box;
 }
 
+ul {
+  list-style-type: none;
+}
+
 body {
-  background: black;
+  background: gray;
+  margin: 0;
+  padding: 0;
 }
 
-h1 {}
-
-p {
-  color: #fff;
-  font-size: 12rem;
-  font-weight: normal;
+.overlay {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 998;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
 }
+
+.overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+@import './layout/header';
+@import './components/sidebar';
+@import './components/switch';

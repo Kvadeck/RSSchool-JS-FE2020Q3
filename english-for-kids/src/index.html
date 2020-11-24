@@ -10,6 +10,88 @@
 
 <body>
 
+  <div class="overlay"></div>
+  <nav class="sidebar">
+    <div class="sidebar__wrapper">
+
+      <div id="dismis-button" class="sidebar__dismiss">
+        <svg class="dismiss-arrow" aria-hidden="true" data-prefix="fas" data-icon="arrow-left" role="img"
+          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+          <path fill="currentColor"
+            d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z">
+          </path>
+        </svg>
+      </div>
+
+      <div class="sidebar__header">
+        <h2>LESSONS</h2>
+      </div>
+
+      <ul class="sidebar__list">
+
+        <li class="active">
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Action</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li>
+              <a href="#">Action 1</a>
+            </li>
+            <li>
+              <a href="#">Action 2</a>
+            </li>
+          </ul>
+
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Animal</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li>
+              <a href="#">Action 1</a>
+            </li>
+            <li>
+              <a href="#">Action 2</a>
+            </li>
+          </ul>
+
+        </li>
+        <li>
+          <a href="#">Clothes</a>
+        </li>
+        <li>
+          <a href="#">Emotions</a>
+        </li>
+        <li>
+          <a href="#">Food</a>
+        </li>
+        <li>
+          <a href="#">Movement</a>
+        </li>
+      </ul>
+      <div class="sidebar__statistic-wrapper">
+        <button type="button" class="btn btn-info btn-lg">Go to statistic</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <header class="header">
+
+      <div class="menu">
+        <div class="menu__wrapper">
+
+          <button type="button" id='menu' class="btn btn-outline-primary btn-lg">MENU</button>
+
+          <div class="switch-component">
+            <div class="switch-component__wrapper">
+              <span id='train-text' class="text-primary font-weight-bold">TRAIN</span>
+              <div class="switch_box box">
+                <input type="checkbox" id='switcher' class="switcher">
+              </div>
+              <span id='play-text' class="text-dark font-weight-bold">PLAY</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
 </body>
 
 </html>
