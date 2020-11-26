@@ -4,42 +4,83 @@ export default class Menu {
     this.playText = document.getElementById('play-text');
     this.switcher = document.getElementById('switcher');
     this.menu = document.getElementById('menu');
+    this.dismisButton = document.getElementById('dismis-button');
     this.overlay = document.querySelector('.overlay');
+    this.sidebar = document.querySelector('.sidebar');
+
+    this.sidebarList = document.querySelector('.sidebar__list');
+    this.listLinks = document.querySelectorAll('.sidebar__list-li');
+    this.cardButtons = document.querySelectorAll('.btn-primary');
 
     this.setEvents();
   }
 
-  isSwitcherCheck() {
-    if (this.switcher.checked === true) {
-      this.trainText.classList.toggle('text-dark');
-      this.playText.classList.toggle('text-success');
-      this.menu.classList.toggle('btn-outline-success');
+  switcherCheck() {
+    const {
+      trainText, playText, menu, switcher, cardButtons,
+    } = this;
+
+    if (switcher.checked === true) {
+      trainText.classList.toggle('text-dark');
+      playText.classList.toggle('text-success');
+      menu.classList.toggle('btn-outline-success');
+
+      cardButtons.forEach((node) => {
+        node.classList.toggle('btn-success');
+      });
     } else {
-      this.trainText.classList.remove('text-dark');
-      this.playText.classList.remove('text-success');
-      this.menu.classList.remove('btn-outline-success');
+      trainText.classList.remove('text-dark');
+      playText.classList.remove('text-success');
+      menu.classList.remove('btn-outline-success');
+      cardButtons.forEach((node) => {
+        node.classList.remove('btn-success');
+      });
     }
   }
 
-  toogleMenu() {
-    this.overlay.classList.toggle('active');
+  activelinkHandle(e) {
+    const active = document.querySelector('.activeLink');
+    if (active) {
+      active.classList.remove('activeLink');
+    }
+    e.currentTarget.classList.add('activeLink');
   }
 
-  closeOverlay() {
-    this.overlay.classList.remove('active');
+  toogleMenu() {
+    const { overlay, sidebar } = this;
+    overlay.classList.add('active');
+    sidebar.classList.add('active');
+  }
+
+  closeMenu() {
+    const { overlay, sidebar } = this;
+    overlay.classList.remove('active');
+    sidebar.classList.remove('active');
   }
 
   setEvents() {
-    this.switcher.addEventListener('click', () => {
-      this.isSwitcherCheck();
+    const {
+      switcher, menu, overlay, dismisButton, listLinks,
+    } = this;
+
+    switcher.addEventListener('click', () => {
+      this.switcherCheck();
     });
 
-    this.menu.addEventListener('click', () => {
+    menu.addEventListener('click', () => {
       this.toogleMenu();
     });
 
-    this.overlay.addEventListener('click', () => {
-      this.closeOverlay();
+    overlay.addEventListener('click', () => {
+      this.closeMenu();
+    });
+
+    dismisButton.addEventListener('click', () => {
+      this.closeMenu();
+    });
+
+    listLinks.forEach((node) => {
+      node.addEventListener('click', this.activelinkHandle);
     });
   }
 }

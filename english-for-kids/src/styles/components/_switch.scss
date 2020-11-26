@@ -1,4 +1,6 @@
 .switch-component {
+    display: flex;
+    align-items: center;
 
     &__wrapper {
         display: flex;
@@ -18,7 +20,7 @@
     }
 
     input[type="checkbox"].switcher {
-        font-size: 30px;
+        font-size: 25px;
         appearance: none;
         width: 3.5em;
         height: 1.5em;

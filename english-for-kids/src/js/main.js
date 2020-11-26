@@ -1,8 +1,10 @@
 import '../styles/main.scss';
-import Model from './models/Model';
 import Menu from './models/Menu';
+import Router from './models/Router';
+import Route from './models/Route';
+import 'bootstrap/js/dist/collapse';
 
-const model = new Model('Webpack 5');
 const menu = new Menu();
 
-console.log(model.testString());
+const router = new Router([new Route('home', 'home.html', true), new Route('about', 'about.html', true),
+]);

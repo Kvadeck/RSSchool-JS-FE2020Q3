@@ -1,0 +1,13 @@
+@media screen and (max-width: 480px) {
+    .switch-component {
+        &__wrapper {
+            * {
+                padding: 0 5px;
+            }
+        }
+
+        input[type="checkbox"].switcher {
+            font-size: 15px;
+        }
+    }
+}
