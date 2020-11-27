@@ -6,5 +6,14 @@ import 'bootstrap/js/dist/collapse';
 
 const menu = new Menu();
 
-const router = new Router([new Route('home', 'home.html', true), new Route('about', 'about.html', true),
+const router = new Router([
+  new Route('Main', true),
+  new Route('ActionsetA', false),
+  new Route('ActionsetB', false),
+  new Route('AnimalsetA', false),
+  new Route('AnimalsetB', false),
+  new Route('Clothes', false),
+  new Route('Emotions', false),
+  new Route('Food', false),
+  new Route('Movement', false),
 ]);

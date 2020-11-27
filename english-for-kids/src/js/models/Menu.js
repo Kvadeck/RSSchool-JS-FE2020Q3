@@ -10,21 +10,20 @@ export default class Menu {
 
     this.sidebarList = document.querySelector('.sidebar__list');
     this.listLinks = document.querySelectorAll('.sidebar__list-li');
-    this.cardButtons = document.querySelectorAll('.btn-primary');
 
     this.setEvents();
   }
 
   switcherCheck() {
+    const cardButtons = document.querySelectorAll('.btn-primary');
     const {
-      trainText, playText, menu, switcher, cardButtons,
+      trainText, playText, menu, switcher,
     } = this;
 
     if (switcher.checked === true) {
       trainText.classList.toggle('text-dark');
       playText.classList.toggle('text-success');
       menu.classList.toggle('btn-outline-success');
-
       cardButtons.forEach((node) => {
         node.classList.toggle('btn-success');
       });
