@@ -3,6 +3,7 @@ export default class Render {
     this.data = data;
   }
 
+  // audioSrc
   renderCard() {
     const template = [];
     this.data.forEach((element) => {
@@ -11,8 +12,9 @@ export default class Render {
       <div class="card">
           <img class="card-img-top" src="./assets/images/${element.image}" alt="${element.word}">
           <div class="card-body text-center">
-            <a href="#" class="btn btn-primary btn-lg">${element.word}</a>
+            <span id ='wordReverse' href="#" class="btn btn-primary btn-lg">${element.word}</span>
           </div>
+            <audio id="audio" src="${element.audioSrc}"></audio>
         </div>
     </div>
       `);
