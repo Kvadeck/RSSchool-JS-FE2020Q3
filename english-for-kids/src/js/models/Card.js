@@ -5,8 +5,9 @@ export default class Card {
     this.setEvents();
   }
 
-  playAudio() {
-    this.audio.play();
+  playAudio(e) {
+    const audio = e.querySelector('audio');
+    return audio.play();
   }
 
   setEvents() {
@@ -15,17 +16,30 @@ export default class Card {
     } = this;
 
     cardsPoint.addEventListener('click', (e) => {
-      if (e.target.id === 'wordReverse') {
-        console.log('something has come...');
+      if (e.target.id === 'wordReverse' || e.target.id === 'question-icon') {
+        const card = e.target.closest('.col-12');
+        const front = card.querySelector('.front');
+        const back = card.querySelector('.back');
+
+        back.addEventListener('mouseleave', () => {
+          front.classList.remove('active');
+          back.classList.remove('active');
+        });
+
+        front.classList.add('active');
+        back.classList.add('active');
       }
     });
 
     cardsPoint.addEventListener('click', (e) => {
-      const parrentItem = e.target.parentElement;
+      const currItem = e.target;
+      const closestItem = e.target.closest('.card');
+      if (!closestItem) return;
 
-      if (parrentItem.className === 'card') {
-        const audio = document.getElementById('audio');
-        audio.play();
+      if (currItem.id === 'play-icon') {
+        this.playAudio(closestItem);
+      } else if (currItem.className === 'card-play__wrapp' && currItem.id !== 'wordReverse') {
+        this.playAudio(closestItem);
       }
     });
   }

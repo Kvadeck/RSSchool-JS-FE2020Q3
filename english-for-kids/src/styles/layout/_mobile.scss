@@ -11,3 +11,73 @@
         }
     }
 }
+
+@media screen and (max-width: 1200px) {
+    .cards {
+        .card.front {
+            .card-play__wrapp {
+                svg {
+                    top: 2.5rem;
+                    left: 5rem;
+                }
+            }
+        }
+        .card.back {
+            width: 208px;
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .cards {
+        .card.front {
+            .card-play__wrapp {
+                svg {
+                    top: 2.5rem;
+                    left: 5rem;
+                }
+            }
+        }
+        .card.back {
+            width: 207.9px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .cards {
+        .card.front {
+            .card-play__wrapp {
+                svg {
+                    top: 3.5rem;
+                    left: 6rem;
+                }
+            }
+        }
+        .card.back {
+            width: 238px;
+        }
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .cards {
+        .card.front {
+            .card-play__wrapp {
+                svg {
+                    width: calc(100% - 12rem);
+                    height: calc(100% - 14rem);
+                    top: 4rem;
+                    left: 6rem;
+                }
+            }
+        }
+
+        .card.back {
+            width: 522px;
+        }
+
+    }
+}
+
