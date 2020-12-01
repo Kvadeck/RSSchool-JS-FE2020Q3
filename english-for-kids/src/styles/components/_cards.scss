@@ -25,6 +25,11 @@
     }
 
     .card.front {
+        .card-play__wrapp.card-play-mode__wrapp {
+            &:before {
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #28a74591 100%);
+            }
+        }
         .card-play__wrapp {
             svg {
                 transition: .3s;

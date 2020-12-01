@@ -5,6 +5,9 @@ export default class Router {
     if (!routes) throw new Error('error: routes params are required');
     this.routes = routes;
     this.rootElem = document.getElementById('cardsPoint');
+    this.switcher = document.getElementById('switcher');
+    this.startGameBtn = document.getElementById('startGameBtn');
+    this.setEvents();
     this.init(this.routes);
   }
 
@@ -41,19 +44,41 @@ export default class Router {
   goToRoute(categoryName) {
     const url = 'data.json';
     const xhttp = new XMLHttpRequest();
-    const rootEl = this.rootElem;
+
+    const {
+      switcher, rootElem, startGameBtn,
+    } = this;
+
     xhttp.onreadystatechange = function () {
       if (this.readyState === 4 && this.status === 200) {
         const obj = JSON.parse(this.responseText);
+
         const render = new Render(obj[categoryName]);
+        this.renderClass = render;
         if (categoryName === 'Main') {
-          rootEl.innerHTML = render.renderMain();
+          rootElem.innerHTML = render.renderMain();
+        } else if (switcher.checked === true) {
+          rootElem.innerHTML = render.renderPlayCard();
+          startGameBtn.innerHTML = render.startBtn();
         } else {
-          rootEl.innerHTML = render.renderCard();
+          startGameBtn.innerHTML = '';
+          rootElem.innerHTML = render.renderCard();
         }
       }
     };
     xhttp.open('GET', url, true);
     xhttp.send();
+  }
+
+  setEvents() {
+    const {
+      switcher, isActiveRoute,
+    } = this;
+
+    switcher.addEventListener('click', () => {
+      const main = isActiveRoute(window.location.hash.substr(1));
+      if (main === 'Main') return;
+      this.init(this.routes);
+    });
   }
 }

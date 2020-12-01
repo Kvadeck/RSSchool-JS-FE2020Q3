@@ -2,6 +2,7 @@ export default class Card {
   constructor() {
     this.cardsPoint = document.getElementById('cardsPoint');
     this.audio = document.getElementById('audio');
+    this.menu = document.querySelector('.menu');
     this.setEvents();
   }
 
@@ -12,8 +13,14 @@ export default class Card {
 
   setEvents() {
     const {
-      cardsPoint,
+      cardsPoint, menu,
     } = this;
+
+    menu.addEventListener('click', (e) => {
+      if (e.target.id === 'start-game') {
+        console.log('kek');
+      }
+    });
 
     cardsPoint.addEventListener('click', (e) => {
       if (e.target.id === 'wordReverse' || e.target.id === 'question-icon') {
@@ -36,9 +43,13 @@ export default class Card {
       const closestItem = e.target.closest('.card');
       if (!closestItem) return;
 
+      if (currItem.id === 'game-icon' || currItem.id === 'card-play') {
+        console.log(currItem.dataset.cardId);
+      }
+
       if (currItem.id === 'play-icon') {
         this.playAudio(closestItem);
-      } else if (currItem.className === 'card-play__wrapp' && currItem.id !== 'wordReverse') {
+      } else if (currItem.id === 'card-train' && currItem.id !== 'wordReverse') {
         this.playAudio(closestItem);
       }
     });

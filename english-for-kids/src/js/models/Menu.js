@@ -24,6 +24,7 @@ export default class Menu {
       trainText.classList.toggle('text-dark');
       playText.classList.toggle('text-success');
       menu.classList.toggle('btn-outline-success');
+
       cardButtons.forEach((node) => {
         node.classList.toggle('btn-success');
       });
