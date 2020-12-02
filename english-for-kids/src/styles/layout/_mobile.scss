@@ -30,7 +30,22 @@
                     left: 5rem;
                 }
             }
+
+            .card-play__wrapp {
+                &:before {
+                    bottom: 75px;
+                }
+            }
+
+            .btn-text {
+                font-size: 1rem;
+            }
+
+            #wordReverse {
+                font-size: 1rem;
+            }
         }
+
         .card.back {
             width: 208px;
         }
@@ -47,6 +62,7 @@
                 }
             }
         }
+
         .card.back {
             width: 207.9px;
         }
@@ -64,6 +80,7 @@
                 }
             }
         }
+
         .card.back {
             width: 238px;
         }
@@ -89,4 +106,3 @@
 
     }
 }
-

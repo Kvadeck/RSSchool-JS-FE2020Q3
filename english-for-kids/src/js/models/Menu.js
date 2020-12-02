@@ -1,14 +1,19 @@
+import Game from './Game';
+
 export default class Menu {
   constructor() {
-    this.trainText = document.getElementById('train-text');
-    this.playText = document.getElementById('play-text');
-    this.switcher = document.getElementById('switcher');
-    this.menu = document.getElementById('menu');
-    this.dismisButton = document.getElementById('dismis-button');
-    this.overlay = document.querySelector('.overlay');
-    this.sidebar = document.querySelector('.sidebar');
+    const $ = function (id) { return document.getElementById(id); };
+    const qS = function (id) { return document.querySelector(id); };
 
-    this.sidebarList = document.querySelector('.sidebar__list');
+    this.trainText = $('train-text');
+    this.playText = $('play-text');
+    this.switcher = $('switcher');
+    this.menu = $('menu');
+    this.dismisButton = $('dismis-button');
+    this.overlay = qS('.overlay');
+    this.sidebar = qS('.sidebar');
+    this.menuBar = qS('.menu');
+    this.sidebarList = qS('.sidebar__list');
     this.listLinks = document.querySelectorAll('.sidebar__list-li');
 
     this.setEvents();
@@ -60,11 +65,17 @@ export default class Menu {
 
   setEvents() {
     const {
-      switcher, menu, overlay, dismisButton, listLinks,
+      switcher, menu, overlay, dismisButton, listLinks, menuBar,
     } = this;
 
     switcher.addEventListener('click', () => {
       this.switcherCheck();
+    });
+
+    menuBar.addEventListener('click', (e) => {
+      if (e.target.id === 'start-game') {
+        const game = new Game();
+      }
     });
 
     menu.addEventListener('click', () => {

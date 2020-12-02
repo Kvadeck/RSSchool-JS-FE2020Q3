@@ -1,26 +1,15 @@
+import { randomArrOfObj } from './Helpers';
+
 export default class Render {
   constructor(data) {
     this.data = data;
   }
 
-  randomCards(data) {
-    const tempData = data.slice();
-    const pack = [];
-    let i = data.length;
-
-    while (i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      pack.push(tempData[j]);
-      tempData.splice(j, 1);
-    }
-    return pack;
-  }
-
   renderPlayCard() {
     const template = [];
-    this.randomCards(this.data).forEach((element) => {
+    randomArrOfObj(this.data).forEach((element) => {
       template.push(`
-      <div class="col-12 col-md-4 col-lg-3 col-sm-6 mt-5">
+      <div class="col-12 col-md-4 col-lg-3 col-sm-6 mt-5 card_animation">
       <div class="card front">
           <div data-card-id="${element.word}" id='card-play' class='card-play__wrapp card-play-mode__wrapp'>
               <img class="card-img-top" src="./assets/images/${element.image}" alt="${element.word}">
@@ -37,7 +26,7 @@ export default class Render {
                       </svg>
                   </span>
               </div>
-              <audio id="audio" src="${element.audioSrc}"></audio>
+              <audio data-card-id="${element.word}" class = "audioGame" id="audio" src="${element.audioSrc}"></audio>
           </div>
       </div>
       `);
@@ -49,7 +38,7 @@ export default class Render {
     const template = [];
     this.data.forEach((element) => {
       template.push(`
-    <div class="col-12 col-md-4 col-lg-3 col-sm-6 mt-5">
+    <div class="col-12 col-md-4 col-lg-3 col-sm-6 mt-5 card_animation">
       <div class="card front">
           <div id='card-train' class='card-play__wrapp'>
             <img class="card-img-top" src="./assets/images/${element.image}" alt="${element.word}">
@@ -59,7 +48,7 @@ export default class Render {
             </svg>
           </div>
               <div class="card-body text-center">
-                <span href="#" class="btn btn-primary btn-lg text-uppercase">${element.word}</span>
+                <span href="#" class="btn btn-primary btn-lg text-uppercase btn-text">${element.word}</span>
                 <span id ="wordReverse" href="#" class="btn btn-primary btn-lg"><svg id="question-icon" width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-question-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path id="question-icon" fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                 <path id="question-icon" d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
@@ -91,7 +80,7 @@ export default class Render {
     const template = [];
     this.data.forEach((element) => {
       template.push(`
-      <div class="col-12 col-md-4 col-lg-3 col-sm-6 mt-5">
+      <div class="col-12 col-md-4 col-lg-4 col-sm-6 mt-5 card_animation">
         <a href="${element.link}">
             <div class="card">
             <img class="card-img-top" src="./assets/images/${element.image}" alt="${element.name}">

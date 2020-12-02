@@ -1,4 +1,6 @@
 import Render from './Render';
+import Animation from './Animate';
+import Game from './Game';
 
 export default class Router {
   constructor(routes) {
@@ -54,13 +56,16 @@ export default class Router {
         const obj = JSON.parse(this.responseText);
 
         const render = new Render(obj[categoryName]);
-        this.renderClass = render;
+
         if (categoryName === 'Main') {
+          const animate = new Animation();
           rootElem.innerHTML = render.renderMain();
         } else if (switcher.checked === true) {
+          const animate = new Animation();
           rootElem.innerHTML = render.renderPlayCard();
           startGameBtn.innerHTML = render.startBtn();
         } else {
+          const animate = new Animation();
           startGameBtn.innerHTML = '';
           rootElem.innerHTML = render.renderCard();
         }

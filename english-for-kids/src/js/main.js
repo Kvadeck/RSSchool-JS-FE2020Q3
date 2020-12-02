@@ -3,6 +3,7 @@ import Menu from './models/Menu';
 import Router from './models/Router';
 import Route from './models/Route';
 import Card from './models/Card';
+import Animate from './models/Animate';
 import 'bootstrap/js/dist/collapse';
 
 const menu = new Menu();
@@ -17,3 +18,5 @@ const router = new Router([
   new Route('Clothes', false),
   new Route('Emotions', false),
 ]);
+
+const animation = new Animate();
