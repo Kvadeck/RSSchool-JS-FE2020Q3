@@ -17,6 +17,8 @@ const router = new Router([
   new Route('AnimalsetB', false),
   new Route('Clothes', false),
   new Route('Emotions', false),
+  new Route('Food', false),
+  new Route('Movement', false),
 ]);
 
 const animation = new Animate();

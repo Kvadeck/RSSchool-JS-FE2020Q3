@@ -1,20 +1,15 @@
-import { randomObj } from './Helpers';
+import Render from './Render';
 
 export default class Game {
-  constructor() {
-    this.audioArr = [].slice();
+  constructor(arr) {
+    this.audioArr = arr;
     this.cardsPoint = document.getElementById('cardsPoint');
-    this.audios = this.cardsPoint.querySelectorAll('.front');
-
-    this.init();
+    this.starLine = document.getElementById('starLine');
+    this.playFirst();
     this.setEvents();
   }
 
-  init() {
-    const random = randomObj(this.audios);
-    random.forEach((e) => {
-      this.audioArr.push(e.querySelector('.audioGame'));
-    });
+  playFirst() {
     this.playAudio(this.audioArr[0]);
   }
 
@@ -25,15 +20,19 @@ export default class Game {
 
   setEvents() {
     const {
-      cardsPoint, audioArr,
+      cardsPoint, audioArr, starLine,
     } = this;
 
     cardsPoint.addEventListener('click', (e) => {
       const currItem = e.target;
       const closestItem = e.target.closest('.card');
       e.stopPropagation();
-      if (!closestItem) return;
+      const render = new Render();
 
+      const winAudio = new Audio('./assets/audio/win.mp3');
+      const loseAudio = new Audio('./assets/audio/lose.mp3');
+
+      if (!closestItem) return;
       if (currItem.id === 'game-icon' || currItem.id === 'card-play') {
         const currId = currItem.dataset.cardId;
         const firstAudio = audioArr[0].dataset.cardId;
@@ -42,9 +41,12 @@ export default class Game {
           const curCard = currItem.closest('.card');
           curCard.remove();
           audioArr.shift();
-          console.log(audioArr);
-          this.playAudio(audioArr[0]);
+          starLine.insertAdjacentHTML('afterbegin', `${render.winStar()}`);
+          winAudio.play();
+          setTimeout(() => { this.playAudio(audioArr[0]); }, 1000);
         } else {
+          starLine.insertAdjacentHTML('afterbegin', `${render.loseStar()}`);
+          loseAudio.play();
           console.log('add wrong star');
         }
       }

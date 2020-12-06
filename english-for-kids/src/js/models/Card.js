@@ -32,6 +32,7 @@ export default class Card {
     });
 
     cardsPoint.addEventListener('click', (e) => {
+      e.stopPropagation();
       const currItem = e.target;
       const closestItem = e.target.closest('.card');
       if (!closestItem) return;

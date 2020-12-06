@@ -1,4 +1,6 @@
 import Game from './Game';
+import Render from './Render';
+import { randomObj } from './Helpers';
 
 export default class Menu {
   constructor() {
@@ -15,6 +17,11 @@ export default class Menu {
     this.menuBar = qS('.menu');
     this.sidebarList = qS('.sidebar__list');
     this.listLinks = document.querySelectorAll('.sidebar__list-li');
+    this.startGameBtn = document.getElementById('startGameBtn');
+    this.repeatWordBtn = document.getElementById('repeatWordBtn');
+
+    this.cardsPoint = document.getElementById('cardsPoint');
+    this.audios = this.cardsPoint.querySelectorAll('.front');
 
     this.setEvents();
   }
@@ -66,7 +73,12 @@ export default class Menu {
   setEvents() {
     const {
       switcher, menu, overlay, dismisButton, listLinks, menuBar,
+      startGameBtn, repeatWordBtn, cardsPoint,
     } = this;
+
+    const randAudio = [];
+
+    const render = new Render();
 
     switcher.addEventListener('click', () => {
       this.switcherCheck();
@@ -74,7 +86,22 @@ export default class Menu {
 
     menuBar.addEventListener('click', (e) => {
       if (e.target.id === 'start-game') {
-        const game = new Game();
+        const audios = cardsPoint.querySelectorAll('.front');
+        const random = randomObj(audios);
+        random.forEach((el) => {
+          randAudio.push(el.querySelector('.audioGame'));
+        });
+
+        const game = new Game(randAudio);
+        game.playFirst();
+
+        switcher.disabled = true;
+        menu.disabled = true;
+        startGameBtn.innerHTML = '';
+        repeatWordBtn.innerHTML = render.repeatWordBtn();
+      }
+      if (e.target.id === 'repeat-word') {
+        randAudio[0].play();
       }
     });
 

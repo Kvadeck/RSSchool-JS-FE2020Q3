@@ -32,6 +32,10 @@
         transition: all .2s ease-in-out;
     }
 
+    input[type="checkbox"].switcher:disabled {
+        opacity: .4;
+    }
+
     input[type="checkbox"].switcher:checked {
         background: #28a745;
     }

@@ -344,102 +344,102 @@
   ],
   "Food": [
     {
-      "word": "sad",
-      "translation": "грустный",
-      "image": "sad.jpg",
-      "audioSrc": "assets/audio/sad.mp3"
+      "word": "squid",
+      "translation": "кальмар",
+      "image": "squid.jpg",
+      "audioSrc": "assets/audio/squid.mp3"
     },
     {
-      "word": "angry",
-      "translation": "сердитый",
-      "image": "angry.jpg",
-      "audioSrc": "assets/audio/angry.mp3"
+      "word": "courgette",
+      "translation": "кабачок",
+      "image": "courgette.jpg",
+      "audioSrc": "assets/audio/courgette.mp3"
     },
     {
-      "word": "happy",
-      "translation": "счастливый",
-      "image": "happy.jpg",
-      "audioSrc": "assets/audio/happy.mp3"
+      "word": "garlic",
+      "translation": "чеснок",
+      "image": "garlic.jpg",
+      "audioSrc": "assets/audio/garlic.mp3"
     },
     {
-      "word": "tired",
-      "translation": "уставший",
-      "image": "tired.jpg",
-      "audioSrc": "assets/audio/tired.mp3"
+      "word": "mushroom",
+      "translation": "гриб",
+      "image": "mushroom.jpg",
+      "audioSrc": "assets/audio/mushroom.mp3"
     },
     {
-      "word": "surprised",
-      "translation": "удивлённый",
-      "image": "surprised.jpg",
-      "audioSrc": "assets/audio/surprised.mp3"
+      "word": "cereal",
+      "translation": "хлопья",
+      "image": "cereal.jpg",
+      "audioSrc": "assets/audio/cereal.mp3"
     },
     {
-      "word": "scared",
-      "translation": "испуганный",
-      "image": "scared.jpg",
-      "audioSrc": "assets/audio/scared.mp3"
+      "word": "aubergine",
+      "translation": "баклажан",
+      "image": "aubergine.jpg",
+      "audioSrc": "assets/audio/aubergine.mp3"
     },
     {
-      "word": "smile",
-      "translation": "улыбка",
-      "image": "smile.jpg",
-      "audioSrc": "assets/audio/smile.mp3"
+      "word": "stew",
+      "translation": "жаркое",
+      "image": "stew.jpg",
+      "audioSrc": "assets/audio/stew.mp3"
     },
     {
-      "word": "laugh",
-      "translation": "смех",
-      "image": "laugh.jpg",
-      "audioSrc": "assets/audio/laugh.mp3"
+      "word": "recipe",
+      "translation": "рецепт",
+      "image": "recipe.jpg",
+      "audioSrc": "assets/audio/recipe.mp3"
     }
   ],
   "Movement": [
     {
-      "word": "sad",
-      "translation": "грустный",
-      "image": "sad.jpg",
-      "audioSrc": "assets/audio/sad.mp3"
+      "word": "get up",
+      "translation": "вставать",
+      "image": "get-up.jpg",
+      "audioSrc": "assets/audio/get-up.mp3"
     },
     {
-      "word": "angry",
-      "translation": "сердитый",
-      "image": "angry.jpg",
-      "audioSrc": "assets/audio/angry.mp3"
+      "word": "bend",
+      "translation": "наклоняться",
+      "image": "bend.jpg",
+      "audioSrc": "assets/audio/bend.mp3"
     },
     {
-      "word": "happy",
-      "translation": "счастливый",
-      "image": "happy.jpg",
-      "audioSrc": "assets/audio/happy.mp3"
+      "word": "climb",
+      "translation": "взбираться",
+      "image": "climb.jpg",
+      "audioSrc": "assets/audio/climb.mp3"
     },
     {
-      "word": "tired",
-      "translation": "уставший",
-      "image": "tired.jpg",
-      "audioSrc": "assets/audio/tired.mp3"
+      "word": "crawl",
+      "translation": "ползти",
+      "image": "crawl.jpg",
+      "audioSrc": "assets/audio/crawl.mp3"
     },
     {
-      "word": "surprised",
-      "translation": "удивлённый",
-      "image": "surprised.jpg",
-      "audioSrc": "assets/audio/surprised.mp3"
+      "word": "go down",
+      "translation": "спускаться",
+      "image": "go-down.jpg",
+      "audioSrc": "assets/audio/go-down.mp3"
     },
     {
-      "word": "scared",
-      "translation": "испуганный",
-      "image": "scared.jpg",
-      "audioSrc": "assets/audio/scared.mp3"
+      "word": "throw",
+      "translation": "бросать",
+      "image": "throw.jpg",
+      "audioSrc": "assets/audio/throw.mp3"
     },
     {
-      "word": "smile",
-      "translation": "улыбка",
-      "image": "smile.jpg",
-      "audioSrc": "assets/audio/smile.mp3"
+      "word": "fall",
+      "translation": "падать",
+      "image": "fall.jpg",
+      "audioSrc": "assets/audio/fall.mp3"
     },
     {
-      "word": "laugh",
-      "translation": "смех",
-      "image": "laugh.jpg",
-      "audioSrc": "assets/audio/laugh.mp3"
+      "word": "kick",
+      "translation": "пинать",
+      "image": "kick.jpg",
+      "audioSrc": "assets/audio/kick.mp3"
     }
   ]
 }

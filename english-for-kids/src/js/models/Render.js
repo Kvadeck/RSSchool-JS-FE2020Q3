@@ -72,15 +72,27 @@ export default class Render {
     return template.join('');
   }
 
+  repeatWordBtn() {
+    return '<button type="button" id="repeat-word" class="m-2 btn btn-outline-danger btn-lg">REPEAT</button>';
+  }
+
   startBtn() {
     return '<button type="button" id="start-game" class="m-2 btn btn-outline-danger btn-lg">START GAME</button>';
+  }
+
+  winStar() {
+    return '<img src="./assets/images/star-win.svg" alt="win star">';
+  }
+
+  loseStar() {
+    return '<img src="./assets/images/star.svg" alt="lose star">';
   }
 
   renderMain() {
     const template = [];
     this.data.forEach((element) => {
       template.push(`
-      <div class="col-12 col-md-4 col-lg-4 col-sm-6 mt-5 card_animation">
+      <div class="col-12 col-md-4 col-lg-3 col-sm-6 mt-5 card_animation">
         <a href="${element.link}">
             <div class="card">
             <img class="card-img-top" src="./assets/images/${element.image}" alt="${element.name}">
