@@ -48,8 +48,8 @@ export default class Render {
             </svg>
           </div>
               <div class="card-body text-center">
-                <span href="#" class="btn btn-primary btn-lg text-uppercase btn-text">${element.word}</span>
-                <span id ="wordReverse" href="#" class="btn btn-primary btn-lg"><svg id="question-icon" width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-question-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <span class="btn btn-primary btn-lg text-uppercase btn-text">${element.word}</span>
+                <span id ="wordReverse" class="btn btn-primary btn-lg"><svg id="question-icon" width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-question-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path id="question-icon" fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                 <path id="question-icon" d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
               </svg></span>
@@ -62,7 +62,7 @@ export default class Render {
       <img class="card-img-top" src="./assets/images/${element.image}" alt="${element.translation}">
       </div>
       <div class="card-body text-center">
-        <span id ="wordReverse" href="#" class="btn btn-primary btn-lg text-uppercase">${element.translation}</span>
+        <span id ="wordReverse" class="btn btn-primary btn-lg text-uppercase">${element.translation}</span>
       </div>
     </div>
 
@@ -73,19 +73,27 @@ export default class Render {
   }
 
   repeatWordBtn() {
-    return '<button type="button" id="repeat-word" class="m-2 btn btn-outline-danger btn-lg">REPEAT</button>';
+    return '<button type="button" id="repeat-word" class="m-2 btn btn-outline-info btn-lg">REPEAT</button>';
   }
 
   startBtn() {
-    return '<button type="button" id="start-game" class="m-2 btn btn-outline-danger btn-lg">START GAME</button>';
+    return '<button type="button" id="start-game" class="m-2 btn btn-outline-danger btn-lg">START </button>';
   }
 
   winStar() {
-    return '<img src="./assets/images/star-win.svg" alt="win star">';
+    return '<img id="winStar" src="./assets/images/star-win.svg" alt="win star">';
   }
 
   loseStar() {
-    return '<img src="./assets/images/star.svg" alt="lose star">';
+    return '<img id="loseStar" src="./assets/images/star.svg" alt="lose star">';
+  }
+
+  winPicture() {
+    return '<img src="./assets/images/winGame.gif" alt="win game">';
+  }
+
+  losePicture() {
+    return '<img src="./assets/images/loseGame.gif" alt="lose game">';
   }
 
   renderMain() {

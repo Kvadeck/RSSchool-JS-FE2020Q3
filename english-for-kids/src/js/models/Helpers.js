@@ -3,7 +3,8 @@ function randomArrOfObj(data) {
   const pack = [];
   let i = data.length;
 
-  while (i--) {
+  while (i) {
+    i -= 1;
     const j = Math.floor(Math.random() * (i + 1));
     pack.push(tempData[j]);
     tempData.splice(j, 1);
