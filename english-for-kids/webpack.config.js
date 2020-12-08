@@ -117,11 +117,12 @@ module.exports = {
         type: 'asset/inline',
       },
       {
-        test: /\.m?js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
+        test: /\.(ttf|woff|woff2|eot)$/,
+        type: 'asset/inline',
+      },
+      {
+        test: /\.mp3$/,
+        loader: 'file-loader',
       },
     ],
   },

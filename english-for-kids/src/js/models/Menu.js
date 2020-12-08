@@ -1,12 +1,11 @@
 import Game from './Game';
 import Render from './Render';
-import { randomObj } from './Helpers';
+import {
+  randomObj, $, qS, qSAll,
+} from './Helpers';
 
 export default class Menu {
   constructor() {
-    const $ = function (id) { return document.getElementById(id); };
-    const qS = function (id) { return document.querySelector(id); };
-
     this.trainText = $('train-text');
     this.playText = $('play-text');
     this.switcher = $('switcher');
@@ -16,34 +15,38 @@ export default class Menu {
     this.sidebar = qS('.sidebar');
     this.menuBar = qS('.menu');
     this.sidebarList = qS('.sidebar__list');
-    this.listLinks = document.querySelectorAll('.sidebar__list-li');
-    this.startGameBtn = document.getElementById('startGameBtn');
-    this.repeatWordBtn = document.getElementById('repeatWordBtn');
-
-    this.cardsPoint = document.getElementById('cardsPoint');
+    this.listLinks = qSAll('.sidebar__list-li');
+    this.cardsPoint = $('cardsPoint');
     this.audios = this.cardsPoint.querySelectorAll('.front');
+    this.startGameBtn = $('startGameBtn');
+    this.repeatWordBtn = $('repeatWordBtn');
 
     this.setEvents();
   }
 
   switcherCheck() {
-    const cardButtons = document.querySelectorAll('.btn-primary');
+    const cardButtons = qSAll('.btn-primary');
     const {
       trainText, playText, menu, switcher,
     } = this;
 
-    if (switcher.checked === true) {
-      trainText.classList.toggle('text-dark');
-      playText.classList.toggle('text-success');
-      menu.classList.toggle('btn-outline-success');
+    const all = [
+      { id: trainText, class: 'text-dark' },
+      { id: playText, class: 'text-success' },
+      { id: menu, class: 'btn-outline-success' },
+    ];
 
+    if (switcher.checked === true) {
+      all.forEach((el) => {
+        el.id.classList.add(el.class);
+      });
       cardButtons.forEach((node) => {
-        node.classList.toggle('btn-success');
+        node.classList.add('btn-success');
       });
     } else {
-      trainText.classList.remove('text-dark');
-      playText.classList.remove('text-success');
-      menu.classList.remove('btn-outline-success');
+      all.forEach((el) => {
+        el.id.classList.remove(el.class);
+      });
       cardButtons.forEach((node) => {
         node.classList.remove('btn-success');
       });
@@ -51,7 +54,7 @@ export default class Menu {
   }
 
   activelinkHandle(e) {
-    const active = document.querySelector('.activeLink');
+    const active = qS('.activeLink');
     if (active) {
       active.classList.remove('activeLink');
     }
@@ -93,7 +96,6 @@ export default class Menu {
         });
 
         const game = new Game(randAudio);
-        game.playFirst();
 
         switcher.disabled = true;
         menu.disabled = true;

@@ -1,40 +1,33 @@
 import Render from './Render';
+import { $, playAudio } from './Helpers';
+import winSound from '../../assets/audio/win.mp3';
+import loseSound from '../../assets/audio/lose.mp3';
+import winGame from '../../assets/audio/winGame.mp3';
+import loseGame from '../../assets/audio/loseGame.mp3';
 
 export default class Game {
   constructor(arr) {
     this.audioArr = arr;
-    this.cardsPoint = document.getElementById('cardsPoint');
-    this.starLine = document.getElementById('starLine');
-    this.playFirst();
+    this.cardsPoint = $('cardsPoint');
+    this.starLine = $('starLine');
+    playAudio(this.audioArr.find((e) => e));
     this.setEvents();
   }
 
-  playFirst() {
-    this.playAudio(this.audioArr[0]);
-  }
-
-  playAudio(e) {
-    if (!e) return;
-    e.play();
+  createSound(file) {
+    return new Audio(file).play();
   }
 
   setEvents() {
     const {
-      cardsPoint, audioArr, starLine,
+      cardsPoint, audioArr, starLine, createSound,
     } = this;
-
     const render = new Render();
 
     cardsPoint.addEventListener('click', (e) => {
       const currItem = e.target;
       const closestItem = e.target.closest('.card');
       e.stopPropagation();
-
-      const winAudio = new Audio('./assets/audio/win.mp3');
-      const loseAudio = new Audio('./assets/audio/lose.mp3');
-
-      const winGameAudio = new Audio('./assets/audio/winGame.mp3');
-      const loseGameAudio = new Audio('./assets/audio/loseGame.mp3');
 
       if (!closestItem) return;
       if (currItem.id === 'game-icon' || currItem.id === 'card-play') {
@@ -47,8 +40,8 @@ export default class Game {
           curCard.style.pointerEvents = 'none';
           audioArr.shift();
           starLine.insertAdjacentHTML('afterbegin', `${render.winStar()}`);
-          winAudio.play();
-          setTimeout(() => { this.playAudio(audioArr[0]); }, 1000);
+          createSound(winSound);
+          setTimeout(() => { playAudio(audioArr[0]); }, 1000);
 
           if (!audioArr.length) {
             const starsArr = [];
@@ -64,19 +57,19 @@ export default class Game {
               cardsPoint.classList.remove('row-cols-4');
               cardsPoint.classList.add('row-cols-1');
               cardsPoint.innerHTML = `${render.losePicture()}`;
-              setTimeout(() => { loseGameAudio.play(); }, 1000);
+              setTimeout(() => { createSound(loseGame); }, 1000);
               setTimeout(() => { window.location.href = './'; }, 5000);
             } else {
               cardsPoint.classList.remove('row-cols-4');
               cardsPoint.classList.add('row-cols-1');
               cardsPoint.innerHTML = `${render.winPicture()}`;
-              setTimeout(() => { winGameAudio.play(); }, 1000);
+              setTimeout(() => { createSound(winGame); }, 1000);
               setTimeout(() => { window.location.href = './'; }, 3000);
             }
           }
         } else {
           starLine.insertAdjacentHTML('afterbegin', `${render.loseStar()}`);
-          loseAudio.play();
+          createSound(loseSound);
         }
       }
     });

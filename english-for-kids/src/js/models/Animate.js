@@ -1,18 +1,19 @@
+import { $, qSAll } from './Helpers';
+
 export default class Animate {
   constructor() {
-    this.game = document.getElementById('cardsPoint');
-    this.preloadAnimation();
+    this.game = $('cardsPoint');
   }
 
-  preloadAnimation() {
+  startAnimation() {
     const { game } = this;
     game.classList.remove('show');
+    // Timeout for add class show after a short time for animation
     setTimeout(() => {
-      const cards = document.querySelectorAll('.cards .card_animation');
-      for (let i = 0; i < cards.length; i += 1) {
-        cards[i].classList.add('show');
-      }
-
+      const cards = qSAll('.cards .card_animation');
+      cards.forEach((el) => {
+        el.classList.add('show');
+      });
       game.classList.add('show');
     }, 300);
   }

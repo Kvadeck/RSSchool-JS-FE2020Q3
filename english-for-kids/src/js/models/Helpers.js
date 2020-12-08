@@ -1,15 +1,9 @@
-function randomArrOfObj(data) {
-  const tempData = data.slice();
-  const pack = [];
-  let i = data.length;
+const $ = function (id) { return document.getElementById(id); };
+const qS = function (id) { return document.querySelector(id); };
+const qSAll = function (id) { return document.querySelectorAll(id); };
 
-  while (i) {
-    i -= 1;
-    const j = Math.floor(Math.random() * (i + 1));
-    pack.push(tempData[j]);
-    tempData.splice(j, 1);
-  }
-  return pack;
+function randomArrOfObj(data) {
+  return data.sort(() => Math.random() - 0.5);
 }
 
 function randomObj(obj) {
@@ -22,4 +16,11 @@ function randomObj(obj) {
   return arr;
 }
 
-export { randomArrOfObj, randomObj };
+function playAudio(e) {
+  if (!e) return;
+  e.play();
+}
+
+export {
+  randomArrOfObj, randomObj, $, qS, qSAll, playAudio,
+};
