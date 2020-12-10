@@ -1,6 +1,6 @@
-const $ = function (id) { return document.getElementById(id); };
-const qS = function (id) { return document.querySelector(id); };
-const qSAll = function (id) { return document.querySelectorAll(id); };
+const $ = function (selector) { return document.getElementById(selector); };
+const qS = function (selector) { return document.querySelector(selector); };
+const qSAll = function (selector) { return document.querySelectorAll(selector); };
 
 function randomArrOfObj(data) {
   return data.sort(() => Math.random() - 0.5);
