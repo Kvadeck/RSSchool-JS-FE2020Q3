@@ -1,8 +1,9 @@
 import { $, qSAll } from './Helpers';
+import constants from './Constants';
 
 export default class Animate {
   constructor() {
-    this.game = $('cardsPoint');
+    this.game = $(constants.ids.cardsPoint);
   }
 
   startAnimation() {
@@ -10,11 +11,11 @@ export default class Animate {
     game.classList.remove('show');
     // Timeout for add class show after a short time for animation
     setTimeout(() => {
-      const cards = qSAll('.cards .card_animation');
+      const cards = qSAll(constants.classNames.cardAnimation);
       cards.forEach((el) => {
-        el.classList.add('show');
+        el.classList.add(constants.classNames.show);
       });
-      game.classList.add('show');
+      game.classList.add(constants.classNames.show);
     }, 300);
   }
 }

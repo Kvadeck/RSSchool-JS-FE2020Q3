@@ -3,13 +3,15 @@ import Animation from './Animate';
 import { $ } from './Helpers';
 import dataJson from '../../data.json';
 
+import constants from './Constants';
+
 export default class Router {
   constructor(routes) {
     if (!routes) throw new Error('error: routes params are required');
     this.routes = routes;
-    this.rootElem = $('cardsPoint');
-    this.switcher = $('switcher');
-    this.startGameBtn = $('startGameBtn');
+    this.rootElem = $(constants.ids.cardsPoint);
+    this.switcher = $(constants.ids.switcher);
+    this.startGameBtn = $(constants.ids.startGameBtn);
     this.setEvents();
     this.init(this.routes);
   }

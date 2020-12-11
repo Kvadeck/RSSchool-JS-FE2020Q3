@@ -1,27 +1,28 @@
 import { $, playAudio } from './Helpers';
+import constants from './Constants';
 
 export default class Card {
   constructor() {
-    this.cardsPoint = $('cardsPoint');
-    this.audio = $('audio');
+    this.cardsPoint = $(constants.ids.cardsPoint);
+    this.audio = $(constants.ids.audio);
     this.setEvents();
   }
 
   flipCard(e) {
-    if (e.target.id === 'wordReverse' || e.target.id === 'question-icon') {
-      const card = e.target.closest('.col-12');
-      const front = card.querySelector('.front');
-      const back = card.querySelector('.back');
+    if (e.target.id === constants.ids.wordReverse || e.target.id === constants.ids.questionIcon) {
+      const card = e.target.closest(constants.classNames.col12);
+      const front = card.querySelector(constants.classNames.front);
+      const back = card.querySelector(constants.classNames.back);
 
       const all = [front, back];
 
       back.addEventListener('mouseleave', () => {
         all.forEach((el) => {
-          el.classList.remove('active');
+          el.classList.remove(constants.classNames.active);
         });
       });
       all.forEach((el) => {
-        el.classList.add('active');
+        el.classList.add(constants.classNames.active);
       });
     }
   }
@@ -29,12 +30,12 @@ export default class Card {
   playCard(e) {
     e.stopPropagation();
     const currItem = e.target;
-    const closestItem = e.target.closest('.card');
+    const closestItem = e.target.closest(constants.classNames.card);
     if (!closestItem) return;
-    if (currItem.id === 'play-icon') {
-      playAudio(closestItem.querySelector('audio'));
-    } else if (currItem.id === 'card-train' && currItem.id !== 'wordReverse') {
-      playAudio(closestItem.querySelector('audio'));
+    if (currItem.id === constants.ids.playIcon) {
+      playAudio(closestItem.querySelector(constants.ids.audio));
+    } else if (currItem.id === constants.ids.cardTrain && currItem.id !== constants.ids.wordReverse) {
+      playAudio(closestItem.querySelector(constants.ids.audio));
     }
   }
 

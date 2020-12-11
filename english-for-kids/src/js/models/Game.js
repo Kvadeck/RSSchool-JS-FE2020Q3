@@ -5,11 +5,13 @@ import loseSound from '../../assets/audio/lose.mp3';
 import winGame from '../../assets/audio/winGame.mp3';
 import loseGame from '../../assets/audio/loseGame.mp3';
 
+import constants from './Constants';
+
 export default class Game {
   constructor(arr) {
     this.audioArr = arr;
-    this.cardsPoint = $('cardsPoint');
-    this.starLine = $('starLine');
+    this.cardsPoint = $(constants.ids.cardsPoint);
+    this.starLine = $(constants.ids.starLine);
     playAudio(this.audioArr.find((e) => e));
     this.setEvents();
   }
@@ -26,16 +28,16 @@ export default class Game {
 
     cardsPoint.addEventListener('click', (e) => {
       const currItem = e.target;
-      const closestItem = e.target.closest('.card');
+      const closestItem = e.target.closest(constants.classNames.card);
       e.stopPropagation();
 
       if (!closestItem) return;
-      if (currItem.id === 'game-icon' || currItem.id === 'card-play') {
+      if (currItem.id === constants.ids.gameIcon || currItem.id === constants.ids.cardPlay) {
         const currId = currItem.dataset.cardId;
         const firstAudio = audioArr[0].dataset.cardId;
 
         if (currId === firstAudio) {
-          const curCard = currItem.closest('.card');
+          const curCard = currItem.closest(constants.classNames.card);
           curCard.style.opacity = '0.2';
           curCard.style.pointerEvents = 'none';
           audioArr.shift();
@@ -45,7 +47,7 @@ export default class Game {
 
           if (!audioArr.length) {
             const starsArr = [];
-            const stars = starLine.querySelectorAll('img');
+            const stars = starLine.querySelectorAll(constants.classNames.img);
 
             stars.forEach((el) => {
               starsArr.push(el.id);
@@ -54,14 +56,14 @@ export default class Game {
             const isLose = (element) => element === 'loseStar';
 
             if (starsArr.some(isLose)) {
-              cardsPoint.classList.remove('row-cols-4');
-              cardsPoint.classList.add('row-cols-1');
+              cardsPoint.classList.remove(constants.classNames.rowCols4);
+              cardsPoint.classList.add(constants.classNames.rowCols1);
               cardsPoint.innerHTML = `${render.losePicture()}`;
               setTimeout(() => { createSound(loseGame); }, 1000);
               setTimeout(() => { window.location.href = './'; }, 5000);
             } else {
-              cardsPoint.classList.remove('row-cols-4');
-              cardsPoint.classList.add('row-cols-1');
+              cardsPoint.classList.remove(constants.classNames.rowCols4);
+              cardsPoint.classList.add(constants.classNames.rowCols1);
               cardsPoint.innerHTML = `${render.winPicture()}`;
               setTimeout(() => { createSound(winGame); }, 1000);
               setTimeout(() => { window.location.href = './'; }, 3000);
