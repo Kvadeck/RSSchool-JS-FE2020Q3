@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Call Stack presentation</title>
+
+	<link rel="stylesheet" href="./dist/reset.css">
+	<link rel="stylesheet" href="./dist/reveal.css">
+	<link rel="stylesheet" href="./dist/theme/night.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="./plugin/highlight/monokai.css" id="highlight-theme">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+
+			<section data-background="./img/first.png">
+				<h3 style="background-color: black; color: white;">Dive into the Call Stack</h3>
+			</section>
+
+			<section>
+				<section>
+					<h4>What is Stack in JS?</h4>
+					<p>Stack is a data structure, which is similar to an array, except that we cannot access the
+						elements using the index directly and we can only insert and delete elements</p>
+				</section>
+				<section>
+					<img src="./img/Stack.png" alt="Stack picture">
+				</section>
+
+				<section>
+					<h4>LIFO</h4>
+					Stack follows LIFO (Last In First Out) , means
+					If stack encounter push operation then the element is inserted at the top of the stack,
+					If stack encounters pop operation the element at the top of the Stack is removed first.
+				</section>
+				<section>
+					<h4>Store when function's run</h4>
+					In programming, call stack is used to store the order of function call. So that we can
+					store the latest function call at the top, once the function is executed, the last executed function
+					can be removed from the stack.
+				</section>
+				<section>
+					<h4>Single Thread → One Stack → One function execution at a time</h4>
+					JavaScript is Single thread , meaning JavaScript can handle(executes) only one function at a time,
+					So for this case, only one stack is enough to handle.
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h3>What exactly lies in Call Stack?</h3>
+					When the JavaScript engine first run your script, it creates a global execution context and
+					pushes it to the call stack. When the engine finds a function invocation, it creates a
+					new execution context for that function and pushes it to the top of the call stack.
+				</section>
+				<section>
+					<h3>What is execution context?</h3>
+					Execution context is an abstract concept of an environment where the Javascript code is evaluated and executed. Whenever any code is run in JavaScript, it’s run inside an execution context.
+				</section>
+
+				<section id="fragments">
+					<h3>We have three type of execution context</h3>
+
+					<p class="fragment" style="font-size: x-large;">
+						Global Execution Context — This is the default or base execution context. The code that is not inside any function is in the global execution context. It performs two things: it creates a global object which is a window object (in the case of browsers) and sets the value of this to equal to the global object.
+					</p>
+					<p class="fragment" style="font-size: x-large;">
+						Functional Execution Context — Every time a function is invoked, a brand new execution context is created for that function. Each function has its own execution context, but it’s created when the function is invoked or called.
+					</p>
+					<p class="fragment" style="font-size: x-large;">
+						Eval Function Execution Context — Code executed inside an eval function also gets its own execution context, but as eval isn’t usually used by JavaScript developers.
+					</p>
+
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h4>How the function will be executed</h4>
+					We have a function
+
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						function one() {
+							var a = 10;
+							return a;
+						 }
+					</code></pre>
+
+				</section>
+
+				<section id="fragments">
+					<h4>When we call the function one()</h4>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						function one() {
+							var a = 10;
+							return a;
+						 }
+					</code></pre>
+
+					<p style="font-size: x-large;">One is pushed to the call stack</p>
+					<p style="font-size: x-large;" class="fragment">Then it executes line var a = 10</p>
+					<p style="font-size: x-large;" class="fragment">Then the next line is executed return a , this will
+						return the value of
+						a .</p>
+					<p style="font-size: x-large;" class="fragment">Once the function is finished executing, then it is
+						removed from the
+						call stack.</p>
+
+				</section>
+
+				<section>
+					<img src="./img/oneCallStack.png" alt="One call stack picture">
+				</section>
+
+				<section>
+					<h4>Lets look to another example</h4>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+						function main(){
+							one();
+						}
+						function one() {
+							two();
+						}
+						function two() {
+							console.trace(“Call Stack”);
+						}
+						main();
+					</code></pre>
+				</section>
+
+				<section id="fragments">
+					<h4>When we call the function main()</h4>
+
+					<p style="font-size: x-large;">When the function call for main() is made, it is pushed to the call
+						stack.</p>
+
+					<p style="font-size: x-large;" class="fragment">Inside the main function another function call to
+						one() is made. So now the one() is pushed to the call stack, and the control is transferred to
+						function one().</p>
+
+					<p style="font-size: x-large;" class="fragment">Inside one another function call to two() is made.
+						So three is pushed to the call stack, and the control is transferred to function two.</p>
+
+					<p style="font-size: x-large;" class="fragment">The console.trace in function three will print the
+						call stack, then there is no more statement to execute in function two, so, it will be removed
+						from the call stack and the control go back to function two.</p>
+
+					<p style="font-size: x-large;" class="fragment">In the function one, there is no more statement to
+						execute, so one is removed from the call stack and the control transferred to the function main.
+					</p>
+
+					<p style="font-size: x-large;" class="fragment">In the function main there is no more statement to
+						execute, now it also removed from the stack</p>
+
+				</section>
+
+
+				<section>
+					<img src="./img/callStack.png" alt="One call stack picture">
+				</section>
+
+			</section>
+			<section data-auto-animate>
+				<section>
+					<h4>How many function call can be pushed to Stack.</h4>
+					The Stack is a data structure there will some certain amount of memory allocated to the call stack,
+					So there is only a certain number of calls that can be pushed to the call stack. If the call stack
+					is full then it will throw Maximum call stack size exceeded (StackOverflow) exception.
+				</section>
+
+				<section id="fragments">
+					<h4>To get Maximum call stack size exceeded, we can</h4>
+
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+					var i =0;
+					function test() {
+						console.log(i++);
+						test();
+					}
+					</code></pre>
+
+					In my browser last index I get is 11439.
+
+				</section>
+			</section>
+
+			<section data-background="./img/last.jpg">
+				<h3 style="color: white;">Thanks!</h3>
+			</section>
+
+		</div>
+	</div>
+
+	<script src="./dist/reveal.js"></script>
+	<script src="./plugin/notes/notes.js"></script>
+	<script src="./plugin/markdown/markdown.js"></script>
+	<script src="./plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
