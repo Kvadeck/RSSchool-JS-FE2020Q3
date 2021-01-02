@@ -17,3 +17,5 @@ Private repository for @kvadeck
 [English for kids](https://rolling-scopes-school.github.io/kvadeck-JS2020Q3/english-for-kids/)
 
 [COVID-19 Dashboard](https://rolling-scopes-school.github.io/kvadeck-JS2020Q3/covid-dashboard/)
+
+[Presentation](https://rolling-scopes-school.github.io/kvadeck-JS2020Q3/presentation/)
